@@ -1,0 +1,4 @@
+*.db 
+
+
+/app/__pycache__
