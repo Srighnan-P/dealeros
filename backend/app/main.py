@@ -5,6 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from .database import Base, engine
 from . import models
+from .routes.disagreements import router as disagreements_router
 
 
 @asynccontextmanager
@@ -25,6 +26,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.include_router(disagreements_router)
 
 @app.get("/health")
 def health():
