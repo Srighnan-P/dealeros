@@ -132,6 +132,27 @@ Frontend: http://localhost:3000
 
 Keep both servers running to use the dashboard.
 
+### Vercel Deployment
+
+When deploying the backend as a separate Vercel project, use the
+`backend/` directory as the project root. Set these environment variables:
+
+- `CORS_ALLOW_ORIGINS=https://<your-frontend-domain>.vercel.app`
+- `DATABASE_URL` should be a PostgreSQL URL for persistent production data.
+
+SQLite database files under the Vercel bundle are not writable or persistent.
+The backend automatically uses `/tmp/dealeros.db` for SQLite deployments and
+copies the bundled seed database on a cold start. `/tmp` data is ephemeral,
+so PostgreSQL is recommended for durable data.
+
+When deploying the frontend as a separate Vercel project, set:
+
+- `NEXT_PUBLIC_API_URL=https://<your-backend-domain>.vercel.app`
+
+For the current frontend deployment, use:
+
+- `NEXT_PUBLIC_API_URL=https://backend-drab-alpha-20.vercel.app`
+
 ## 5. CSV Import and Data Cleaning
 
 The importer reads three files:

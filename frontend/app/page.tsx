@@ -47,8 +47,7 @@ export default function Home() {
       }
       params.set("sort", sort);
 
-      const apiUrl =
-        process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+      const apiUrl = "https://backend-drab-alpha-20.vercel.app";
 
       try {
         const response = await fetch(
