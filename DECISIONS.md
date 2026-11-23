@@ -69,7 +69,7 @@ The API will require an organization ID and return only disagreements belonging 
 
 Cross-organization mismatches must not expose another organization's private location or record details.
 
-**Limitation:** An organization query parameter alone does not authenticate the user. Production tenant isolation would require authentication and server-side authorization.
+**Limitation:** The `org` query parameter alone does not authenticate the caller or prove which organization they represent. Any unauthenticated caller could request another organization's data by supplying a different `org` value. Production tenant isolation requires identity verification and server-side authorization.
 
 ## 6. Testing
 
